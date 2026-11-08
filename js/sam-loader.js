@@ -38,8 +38,15 @@
     var st = document.createElement('style'); st.textContent = css; (document.head || root).appendChild(st);
     root.classList.add('sam-loading'); if (sbw > 0) root.style.paddingRight = sbw + 'px';
     if (lenis && lenis.stop) lenis.stop();
-    var L = make(false), box = layer('sam-loader', L.svg); (document.body || root).appendChild(box);
-    if (!document.body) document.addEventListener('DOMContentLoaded', function () { document.body.appendChild(box); });
+    var L = make(false), box = layer('sam-loader', L.svg);
+    function mountLoader() {
+      if (!document.body) {
+        document.addEventListener('DOMContentLoaded', mountLoader, { once: true });
+        return;
+      }
+      document.body.appendChild(box);
+    }
+    mountLoader();
     function holdScale() {
       target = resolveTarget(o.target);
       if (target) target.style.cssText += ';transform:scale(1.08);transform-origin:50% 50%';

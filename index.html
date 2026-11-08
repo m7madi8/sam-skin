@@ -648,28 +648,29 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
   .vestibule__scrim{transition:none!important}
 }
 </style>
+</head>
+<body>
 <script src="js/sam-loader.js"></script>
 <script>
 (function(){
   if(!window.SamLoader)return;
-  var imgReady=new Promise(function(resolve){
-    function wait(){
+  function startLoader(){
+    var imgReady=new Promise(function(resolve){
       var img=document.querySelector('[data-hero-campaign] img');
-      if(!img){document.addEventListener('DOMContentLoaded',wait,{once:true});return}
+      if(!img){resolve();return}
       if(img.complete){resolve();return}
       img.addEventListener('load',resolve,{once:true});
       img.addEventListener('error',resolve,{once:true});
-    }
-    wait();
-  });
-  window.__samLoaderPromise=SamLoader.init({
-    ready:imgReady,
-    target:'#site'
-  });
+    });
+    window.__samLoaderPromise=SamLoader.init({
+      once:false,
+      ready:imgReady,
+      target:'#site'
+    });
+  }
+  startLoader();
 })();
 </script>
-</head>
-<body>
 <div id="site">
 
 <a class="skip" href="#main">Skip to content</a>
@@ -1418,16 +1419,16 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
     r.addEventListener('focus',function(){setRp(i)});
   });
 
-  if(!hasG)return;
-
   /* hero entrance — waits for the signature loader split */
-  gsap.set('.hdr__bar',{y:-18,opacity:0});
-  gsap.set('.hero__mark',{y:12,opacity:0});
-  gsap.set('.hero__axis',{scaleY:0,transformOrigin:'top center'});
-  gsap.set('.hero__statement .ln>span, .hero__statement .mass, .hero__statement .mid, .hero__statement .end',{yPercent:110});
-  gsap.set('[data-hero-fade]',{y:22,opacity:0});
-  gsap.set('[data-hero-campaign]',{clipPath:'inset(0 100% 0 0)'});
-  gsap.set('[data-hero-campaign] img',{scale:1.05});
+  function prepHeroForLoader(){
+    gsap.set('.hdr__bar',{y:-18,opacity:0});
+    gsap.set('.hero__mark',{y:12,opacity:0});
+    gsap.set('.hero__axis',{scaleY:0,transformOrigin:'top center'});
+    gsap.set('.hero__statement .ln>span, .hero__statement .mass, .hero__statement .mid, .hero__statement .end',{yPercent:110});
+    gsap.set('[data-hero-fade]',{y:22,opacity:0});
+    gsap.set('[data-hero-campaign]',{clipPath:'inset(0 100% 0 0)'});
+    gsap.set('[data-hero-campaign] img',{scale:1.05});
+  }
   function playHeroEntrance(){
     var tl=gsap.timeline({defaults:{ease:'expo.out'}});
     tl.to('.hdr__bar',{y:0,opacity:1,duration:1.15},0)
@@ -1439,9 +1440,14 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
       .to('[data-hero-campaign] img',{scale:1,duration:1.85,ease:'expo.out'},0.28);
     if(!reduce){gsap.to('[data-hero-campaign] img',{y:-14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:0.65}})}
   }
+  if(!hasG)return;
   var loaderP=window.__samLoaderPromise;
-  if(loaderP&&typeof loaderP.then==='function')loaderP.then(playHeroEntrance);
-  else playHeroEntrance();
+  if(loaderP&&typeof loaderP.then==='function'){
+    prepHeroForLoader();
+    loaderP.then(playHeroEntrance);
+  }else{
+    playHeroEntrance();
+  }
 
   /* philosophy: words come into focus, the old idea is struck through */
   var stmt=$('#stmt');
