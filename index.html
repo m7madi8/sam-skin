@@ -375,7 +375,7 @@ html:not(.js) .vestibule.is-open .vestibule__scrim{opacity:1}
 .app__ch--last{border-bottom:0;padding-bottom:0}
 .app__ch-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr) minmax(0,1fr);gap:clamp(1.25rem,3.2vw,2.75rem);align-items:end}
 .app__ch-grid--twin{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center}
-.app__pair{display:grid;gap:.75rem;align-content:end;min-width:0}
+.app__pair{display:grid;grid-template-columns:1fr;grid-template-rows:auto auto;gap:.75rem;align-content:start;min-width:0;position:relative;isolation:isolate}
 .app__niche{margin:0;aspect-ratio:var(--ratio-product);width:100%;max-width:11.25rem;border:1px solid rgba(96,79,62,.12);overflow:hidden;background:var(--white);border-radius:clamp(.7rem,1.15vw,.95rem)}
 .app__niche .media-product__in{padding:clamp(.35rem,.55vw,.5rem);inset:0}
 .app__niche .img--product{object-fit:contain;object-position:center center;border-radius:clamp(.55rem,.9vw,.75rem)}
@@ -394,22 +394,43 @@ html:not(.js) .vestibule.is-open .vestibule__scrim{opacity:1}
 @media (min-width:1200px){
   .app__niche{max-width:min(100%,20rem);width:min(100%,20rem);min-height:min(26rem,42vh)}
 }
-@media (max-width:1024px){
-  .app__ch-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy pair" "plate plate"}
+@media (min-width:961px) and (max-width:1024px){
+  .app__ch-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy pair" "plate plate";align-items:start;gap:clamp(1.35rem,3vw,2rem)}
   .app__ch-grid--twin{grid-template-areas:"copy pair"}
   .app__ch-grid .bel__ch-copy{grid-area:copy}
-  .app__ch-grid .app__pair{grid-area:pair;justify-self:end}
+  .app__ch-grid .app__pair{grid-area:pair;justify-self:stretch;max-width:min(100%,18rem)}
   .app__ch-grid .app__plate{grid-area:plate;justify-self:start;max-width:min(100%,20rem)}
   .app__ch-grid .bel__plate--rhythm,.app__ch-grid .bel__plate--clarity{grid-area:plate;justify-self:end}
 }
+@media (max-width:960px){
+  .app__ch-grid,.app__ch-grid--twin{grid-template-columns:1fr;grid-template-areas:none;gap:clamp(1.15rem,4vw,1.65rem);align-items:start}
+  .app__ch-grid .bel__ch-copy,.app__ch-grid .app__pair,.app__ch-grid .app__plate,.app__ch-grid .bel__plate--rhythm,.app__ch-grid .bel__plate--clarity{grid-area:auto;justify-self:stretch}
+  .app__pair{display:grid;grid-template-columns:minmax(0,6.75rem) minmax(0,1fr);grid-template-areas:"visual verse";gap:.85rem 1.1rem;align-items:start;width:100%;max-width:none}
+  .app__niche{grid-area:visual;width:100%;max-width:6.75rem;min-height:0;aspect-ratio:var(--ratio-product);justify-self:start}
+  .app__verse{grid-area:verse;align-self:center;min-width:0}
+  .app__ch-copy p{margin-top:1rem}
+  .bel__plate--rhythm{padding:1rem 0 .25rem;align-self:stretch;justify-content:flex-start}
+  .bel__rhythm{margin-top:0;max-width:none}
+}
 @media (max-width:820px){
-  .app__mast{grid-template-columns:1fr}
+  .app{padding-block:clamp(3.25rem,11vw,4.75rem)}
+  .app__mast{grid-template-columns:1fr;gap:1rem;padding-bottom:clamp(1.35rem,4vw,1.85rem);margin-bottom:clamp(1.1rem,3.5vw,1.5rem)}
   .app__care{justify-self:start;text-align:left}
-  .app__ch-grid{grid-template-columns:1fr;grid-template-areas:none}
-  .app__ch-grid .bel__ch-copy,.app__ch-grid .app__pair,.app__ch-grid .app__plate,.app__ch-grid .bel__plate--rhythm,.app__ch-grid .bel__plate--clarity{grid-area:auto}
-  .app__pair{max-width:20rem}
+  .app__ch{padding-block:clamp(1.65rem,5.5vw,2.35rem)}
+  .app__ch-grid{gap:1.15rem}
+  .app__line--race{font-size:clamp(1.95rem,8.5vw,2.65rem)}
+  .app__line--end{font-size:clamp(1.35rem,5.5vw,1.85rem)}
+  .bel__ch-copy h3{font-size:clamp(1.65rem,6.8vw,2.15rem);line-height:1.08}
+  .app__pair{grid-template-columns:minmax(0,5.85rem) minmax(0,1fr);gap:.75rem 1rem}
+  .app__niche{max-width:5.85rem}
+  .app__beat-word{font-size:clamp(1.35rem,5.2vw,1.65rem);margin:.2rem 0 .35rem}
+  .app__verse p{font-size:.92rem;line-height:1.55;max-width:none}
   .app__plate,.app__ch-grid .bel__plate--clarity{max-width:none;width:100%}
-  .app__verse p{max-width:none}
+  .app__meter{margin-top:clamp(1.15rem,4vw,1.65rem);padding-top:.85rem}
+  .phil{padding-block:clamp(3.25rem,10vw,4.75rem)}
+  .phil__body{margin-top:clamp(2rem,6vw,3rem)}
+  .bel{padding-block:clamp(3.25rem,10vw,4.75rem)}
+  .col,.rit{padding-block:clamp(3.25rem,10vw,4.75rem)}
 }
 @media (prefers-reduced-motion:reduce){
   .app__meter i::after{transform:scaleX(1)}
