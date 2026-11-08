@@ -1,0 +1,43 @@
+/* Slides 01–04 — locked placeholders (replace content only via your approved slide files) */
+.slide--locked {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.locked-inner {
+  padding: 80px;
+  border: 1px solid var(--coal);
+  max-width: 720px;
+}
+.locked-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 28px;
+}
+.slide--01 .locked-title {
+  font-family: var(--serif);
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+}
+.locked-sub {
+  margin-top: 20px;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.locked-note {
+  margin-top: 48px;
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--mute);
+  max-width: 28rem;
+  margin-inline: auto;
+}
