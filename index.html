@@ -55,11 +55,14 @@
   --ratio-stone:830/367;
   --frame-radius:clamp(1.35rem,3.2vw,2.75rem);
   --frame-pad:clamp(.12rem,.35vw,.28rem);
+  --sam-paper:var(--porcelain);
+  --sam-logo:var(--shadow);
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--porcelain)}
 body{margin:0;background:var(--porcelain);color:var(--graphite);font-family:var(--sans);font-size:1rem;line-height:var(--lh-body);font-weight:400;letter-spacing:.01em;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-feature-settings:'kern' 1,'liga' 1}
+#site{min-height:100%;transform-origin:50% 50%}
 img{display:block;max-width:100%;height:auto}
 html{overflow-x:clip}
 /* Image roles — product vs editorial */
@@ -640,12 +643,34 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  #sam-loader,#sam-loader-t,#sam-loader-b,#sam-loader *,#sam-loader-t *,#sam-loader-b *{transition-duration:revert!important;animation-duration:revert!important}
   .vestibule__slab{clip-path:none!important;transition:none!important}
   .vestibule__scrim{transition:none!important}
 }
 </style>
+<script src="js/sam-loader.js"></script>
+<script>
+(function(){
+  if(!window.SamLoader)return;
+  var imgReady=new Promise(function(resolve){
+    function wait(){
+      var img=document.querySelector('[data-hero-campaign] img');
+      if(!img){document.addEventListener('DOMContentLoaded',wait,{once:true});return}
+      if(img.complete){resolve();return}
+      img.addEventListener('load',resolve,{once:true});
+      img.addEventListener('error',resolve,{once:true});
+    }
+    wait();
+  });
+  window.__samLoaderPromise=SamLoader.init({
+    ready:imgReady,
+    target:'#site'
+  });
+})();
+</script>
 </head>
 <body>
+<div id="site">
 
 <a class="skip" href="#main">Skip to content</a>
 
@@ -1105,6 +1130,8 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
   </div>
 </dialog>
 
+</div>
+
 <script src="js/gsap.min.js"></script>
 <script src="js/ScrollTrigger.min.js"></script>
 <script>
@@ -1393,16 +1420,28 @@ dialog::backdrop{background:rgba(48,44,37,.72)}
 
   if(!hasG)return;
 
-  /* hero entrance — threshold reveal */
-  var tl=gsap.timeline({defaults:{ease:'expo.out'}});
-  tl.from('.hdr__bar',{y:-18,opacity:0,duration:1.15},0)
-    .from('.hero__mark',{y:12,opacity:0,duration:1},0.05)
-    .from('.hero__axis',{scaleY:0,duration:1.35,transformOrigin:'top center'},0.12)
-    .from('.hero__statement .ln>span, .hero__statement .mass, .hero__statement .mid, .hero__statement .end',{yPercent:110,duration:1.45,stagger:.1},0.15)
-    .from('[data-hero-fade]',{y:22,opacity:0,duration:1.15,stagger:.08},0.75)
-    .from('[data-hero-campaign]',{clipPath:'inset(0 100% 0 0)',duration:1.5,ease:'expo.out'},0.28)
-    .from('[data-hero-campaign] img',{scale:1.05,duration:1.85,ease:'expo.out'},0.28);
-  if(!reduce){gsap.to('[data-hero-campaign] img',{y:-14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:0.65}})}
+  /* hero entrance — waits for the signature loader split */
+  gsap.set('.hdr__bar',{y:-18,opacity:0});
+  gsap.set('.hero__mark',{y:12,opacity:0});
+  gsap.set('.hero__axis',{scaleY:0,transformOrigin:'top center'});
+  gsap.set('.hero__statement .ln>span, .hero__statement .mass, .hero__statement .mid, .hero__statement .end',{yPercent:110});
+  gsap.set('[data-hero-fade]',{y:22,opacity:0});
+  gsap.set('[data-hero-campaign]',{clipPath:'inset(0 100% 0 0)'});
+  gsap.set('[data-hero-campaign] img',{scale:1.05});
+  function playHeroEntrance(){
+    var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+    tl.to('.hdr__bar',{y:0,opacity:1,duration:1.15},0)
+      .to('.hero__mark',{y:0,opacity:1,duration:1},0.05)
+      .to('.hero__axis',{scaleY:1,duration:1.35},0.12)
+      .to('.hero__statement .ln>span, .hero__statement .mass, .hero__statement .mid, .hero__statement .end',{yPercent:0,duration:1.45,stagger:.1},0.15)
+      .to('[data-hero-fade]',{y:0,opacity:1,duration:1.15,stagger:.08},0.75)
+      .to('[data-hero-campaign]',{clipPath:'inset(0 0% 0 0)',duration:1.5,ease:'expo.out'},0.28)
+      .to('[data-hero-campaign] img',{scale:1,duration:1.85,ease:'expo.out'},0.28);
+    if(!reduce){gsap.to('[data-hero-campaign] img',{y:-14,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:0.65}})}
+  }
+  var loaderP=window.__samLoaderPromise;
+  if(loaderP&&typeof loaderP.then==='function')loaderP.then(playHeroEntrance);
+  else playHeroEntrance();
 
   /* philosophy: words come into focus, the old idea is struck through */
   var stmt=$('#stmt');
