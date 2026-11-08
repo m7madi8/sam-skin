@@ -22,7 +22,7 @@ Instagram-format slides at **1080 × 1350 px**.
 
 ## Slide 06 — concept chosen
 
-**“Campaign close + collection inset”** (vs. generic thank-you, vs. fake contact): full-bleed `1794147832524.jpg`, monochrome type block, small collection inset — portfolio statement, not a contact card.
+**“Campaign close + collection inset”** (vs. generic thank-you, vs. fake contact): full-bleed `img/photos/campaign-arch.jpg`, monochrome type block, small collection inset — portfolio statement, not a contact card.
 
 ## Slides 01–04
 
