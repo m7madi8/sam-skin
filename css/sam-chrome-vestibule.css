@@ -1,0 +1,42 @@
+/* Vestibule menu — full rules from homepage */
+.vestibule__chamber{display:none}
+.vestibule__chamber-inset{padding:clamp(1.25rem,4vw,2.5rem) max(var(--gutter),env(safe-area-inset-right,0px)) clamp(1.5rem,4vw,2.5rem) clamp(1.5rem,5vw,3rem);display:flex;flex-direction:column;justify-content:space-between;min-height:100%;background:var(--shadow);color:var(--white)}
+.vestibule__quote{font-family:var(--headline-editorial);font-size:clamp(1.3rem,2.1vw,1.75rem);line-height:1.14;max-width:14rem;color:var(--ivory)}
+.vestibule__quote em{font-style:italic;color:var(--stone)}
+.vestibule__arch{width:min(42%,5.5rem);aspect-ratio:1/1.15;border:1px solid var(--hair-dark);border-radius:999px 999px 0 0;margin:clamp(1.5rem,4vh,3rem) 0;align-self:center}
+.vestibule__chamber-mark{font-size:.64rem;font-weight:600;letter-spacing:var(--track-skin);text-transform:uppercase;color:var(--stone)}
+.vestibule__hall-head{padding-inline:max(var(--gutter),env(safe-area-inset-left,0px)) max(var(--gutter),env(safe-area-inset-right,0px))}
+.vestibule__top{display:flex;align-items:center;min-height:calc(var(--hdr-h) - .35rem);padding-bottom:clamp(.45rem,1.4vh,.75rem);border-bottom:1px solid var(--hair)}
+.vestibule__top img{height:clamp(2.15rem,7vw,2.55rem);width:auto}
+.vestibule__nav{flex:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(.85rem,3vh,1.25rem) var(--vest-pad-r) clamp(.85rem,3vh,1.25rem) var(--vest-pad)}
+.vestibule__nav a+a{border-top:1px solid var(--hair)}
+.vestibule__ghost{grid-column:1;font-family:var(--headline-monument);font-size:clamp(3.1rem,16vw,5.75rem);line-height:.82;color:transparent;-webkit-text-stroke:1px rgba(96,79,62,.14);pointer-events:none}
+.vestibule__nav a::after{content:"";position:absolute;left:calc(var(--vest-num) + var(--vest-gap) * .35);top:18%;bottom:18%;width:1px;background:var(--bronze);transform:scaleY(0);transition:transform .55s var(--ease)}
+.vestibule__nav a:hover .vestibule__word,.vestibule__nav a.is-current .vestibule__word{color:var(--bronze)}
+.vestibule__nav a:hover::after,.vestibule__nav a.is-current::after{transform:scaleY(1)}
+.vestibule__foot{font-size:.66rem;font-weight:600;letter-spacing:var(--track-ui);text-transform:uppercase;text-align:center;margin-top:1.35rem}
+.vestibule__orbit{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.65rem,3vw,1.1rem);margin-top:1.15rem;padding-top:1rem;border-top:1px solid var(--hair-dark)}
+.vestibule__node{display:flex;flex-direction:column;align-items:center;gap:.6rem;text-decoration:none}
+.vestibule__ring{width:clamp(3.35rem,14.5vw,3.95rem);aspect-ratio:1;border-radius:50%;border:1px solid rgba(245,244,239,.28);display:grid;place-items:center}
+.vestibule__ring svg{width:1.72rem;height:1.72rem;stroke:currentColor;fill:none}
+.vestibule__node>span:last-child{font-size:.58rem;font-weight:600;letter-spacing:var(--track-ui);text-transform:uppercase;color:var(--stone)}
+body.is-menu-open .hdr{z-index:50;color:var(--graphite)}
+body.is-menu-open .hdr__bar{background:var(--surface);border-bottom-color:var(--hair)}
+.hdr__index{align-items:center;gap:var(--menu-latch-gap);min-height:2.85rem;padding:.4rem;background:transparent;border:0;cursor:pointer}
+.hdr__index-rule{width:1px;height:1.9rem;background:currentColor;opacity:.88}
+.hdr__index-words{position:relative;height:1.15rem;min-width:var(--menu-latch-w);overflow:hidden}
+.hdr__index-pane{display:grid;transition:transform .45s var(--ease)}
+.hdr__index-open,.hdr__index-shut{font-size:clamp(.72rem,2.35vw,.82rem);font-weight:600;letter-spacing:var(--track-skin);text-transform:uppercase;line-height:1.15rem}
+.hdr__index[aria-expanded=true] .hdr__index-pane{transform:translateY(-1.15rem)}
+.hdr__index[aria-expanded=true] .hdr__index-rule{height:1px;width:2.35rem;background:var(--bronze);align-self:center}
+@media (min-width:821px){
+  .vestibule__slab{width:min(94vw,58rem);grid-template-columns:minmax(0,2fr) minmax(0,5fr);display:grid}
+  .vestibule__chamber{display:block}
+  .vestibule__hall{padding-left:clamp(1.5rem,3vw,2.75rem)}
+}
+@media (max-width:820px){
+  .vestibule__slab{width:min(86vw,20.5rem)}
+  .vestibule__hall-head,.vestibule__ghost{display:none}
+  .vestibule__nav a::before{content:counter(vest,decimal-leading-zero);grid-column:1;font-size:.64rem;color:var(--bronze)}
+  .vestibule__nav{counter-reset:vest}
+}

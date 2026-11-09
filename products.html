@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Collection — SAM SKIN</title>
+<meta name="description" content="Four skincare objects from SAM SKIN — cleanse, hydrate, moisturize, and protect. An editorial product gallery.">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="css/sam-chrome.css">
+<link rel="stylesheet" href="css/price.css">
+<link rel="stylesheet" href="css/products.css">
+</head>
+<body>
+<div id="site">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr is-solid" id="hdr">
+  <div class="hdr__bar">
+    <div class="wrap hdr__grid">
+      <nav class="hdr__nav hdr__nav--L" aria-label="Primary navigation">
+        <a href="products.html" data-nav="collection" class="is-current">Collection</a>
+        <a href="index.html#philosophy" data-nav="philosophy">Philosophy</a>
+      </nav>
+      <a class="hdr__logo" href="index.html" aria-label="SAM SKIN, home">
+        <img class="l-dark" src="img/logo-dark.png" width="513" height="258" alt="SAM SKIN">
+        <img class="l-light" src="img/logo-light.png" width="513" height="258" alt="" aria-hidden="true">
+      </a>
+      <div class="hdr__tools">
+        <nav class="hdr__nav hdr__nav--R" aria-label="Secondary navigation">
+          <a href="index.html#ritual" data-nav="ritual">Ritual</a>
+          <a href="index.html#contact" data-nav="contact">Contact</a>
+        </nav>
+        <button type="button" class="hdr__bag" id="hdrBag" aria-expanded="false" aria-controls="bagPanel" aria-label="Open shopping bag">
+          <span class="hdr__bag-glyph">
+            <span class="hdr__bag-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M6.25 9.25h11.5l-.85 11H7.1l-.85-11Z"/><path d="M9 9.25V7.6a3 3 0 0 1 6 0v1.65"/></svg>
+            </span>
+            <span class="hdr__bag-count" id="bagCount" data-empty="true" aria-live="polite"></span>
+          </span>
+          <span class="hdr__bag-label">Bag</span>
+        </button>
+      </div>
+      <button type="button" class="hdr__index" id="menuBtn" aria-expanded="false" aria-controls="sheet" aria-label="Open menu">
+        <span class="hdr__index-rule" aria-hidden="true"></span>
+        <span class="hdr__index-words" aria-hidden="true">
+          <span class="hdr__index-pane"><span class="hdr__index-open">Menu</span><span class="hdr__index-shut">Close</span></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="vestibule" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <p class="sr" id="sheetTitle">SAM SKIN site navigation</p>
+  <button type="button" class="vestibule__scrim" id="menuScrim" aria-label="Close menu" tabindex="-1"></button>
+  <div class="vestibule__slab" data-vestibule-slab>
+    <aside class="vestibule__chamber" aria-label="Brand">
+      <div class="vestibule__chamber-inset">
+        <p class="vestibule__quote" data-vest-chamber><em>Skin is shaped by attention,</em> not corrected.</p>
+        <div class="vestibule__arch" aria-hidden="true"></div>
+        <p class="vestibule__chamber-mark" data-vest-chamber>The art of skin</p>
+      </div>
+    </aside>
+    <div class="vestibule__hall">
+      <div class="vestibule__hall-head">
+        <div class="vestibule__top"><img src="img/logo-dark.png" width="513" height="258" alt="SAM SKIN"></div>
+      </div>
+      <nav class="vestibule__nav" aria-label="Site navigation">
+        <a href="products.html" data-nav="collection" data-vest-link class="is-current"><span class="vestibule__ghost" aria-hidden="true">01</span><span class="vestibule__word">Collection</span></a>
+        <a href="index.html#philosophy" data-nav="philosophy" data-vest-link><span class="vestibule__ghost" aria-hidden="true">02</span><span class="vestibule__word">Philosophy</span></a>
+        <a href="index.html#ritual" data-nav="ritual" data-vest-link><span class="vestibule__ghost" aria-hidden="true">03</span><span class="vestibule__word">Ritual</span></a>
+        <a href="index.html#contact" data-nav="contact" data-vest-link><span class="vestibule__ghost" aria-hidden="true">04</span><span class="vestibule__word">Contact</span></a>
+      </nav>
+      <footer class="vestibule__threshold" data-vest-threshold>
+        <p class="vestibule__foot">Four objects · one quiet routine</p>
+        <div class="vestibule__orbit" role="list">
+          <a class="vestibule__node" id="vestInsta" role="listitem" href="index.html#contact" data-vest-link aria-label="Instagram"><span class="vestibule__ring"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.25"/></svg></span><span>Instagram</span></a>
+          <a class="vestibule__node" id="vestWa" role="listitem" href="index.html#contact" data-vest-link aria-label="WhatsApp"><span class="vestibule__ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c-4.85 0-8.75 3.75-8.75 8.4 0 1.82.58 3.5 1.58 4.88L3 21.5l5.15-1.9c1.28.68 2.75 1.05 4.25 1.05 4.85 0 8.75-3.75 8.75-8.4S16.85 2.5 12 2.5z"/></svg></span><span>WhatsApp</span></a>
+          <a class="vestibule__node" id="vestPhone" role="listitem" href="index.html#contact" data-vest-link aria-label="Call"><span class="vestibule__ring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 4h2.4c.55 0 1.02.4 1.12.95.14.58.4 1.38.75 2.12.22.5.1 1.08-.32 1.45l-1.05 1c.9 1.48 2.32 2.88 3.8 3.78l1.05-1.05c.38-.4.98-.52 1.45-.32.72.28 1.52.52 2.08.65.55.12.95.58.95 1.12v2.4c0 .82-.65 1.5-1.48 1.55-6.35.33-11.65-4.88-11.35-11.22z"/></svg></span><span>Call</span></a>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<section class="pg-intro" id="pg-intro" data-tone="light" aria-labelledby="pgIntroH">
+  <div class="wrap">
+    <div class="pg-intro__grid" data-pg-intro>
+      <div>
+        <div class="pg-intro__rule" aria-hidden="true"></div>
+        <p class="eyebrow">The collection</p>
+        <h1 class="pg-intro__title" id="pgIntroH">Objects held with <em>quiet care.</em></h1>
+        <p class="lead pg-intro__body">Four skincare essentials — each with one clear purpose. Named plainly, shaped to be held, designed to be kept.</p>
+        <p class="pg-intro__meta"><span>Cleanse · Hydrate · Moisturize · Protect</span><span>Prices incl. VAT</span></p>
+      </div>
+      <figure class="pg-intro__figure">
+        <img src="img/photos/collection-ensemble.jpg" width="1024" height="1280" alt="The complete SAM SKIN collection arranged together." decoding="async" fetchpriority="high">
+        <figcaption>Ensemble · 04 objects</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="pg-gallery" id="pg-gallery" data-tone="light" aria-labelledby="pgGalleryH">
+  <div class="pg-rail">
+    <div class="wrap pg-rail__in">
+      <div class="pg-filters" role="toolbar" aria-label="Filter by ritual step">
+        <button type="button" class="is-on" data-pg-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-pg-filter="cleanse" aria-pressed="false">Cleanse</button>
+        <button type="button" data-pg-filter="hydrate" aria-pressed="false">Hydrate</button>
+        <button type="button" data-pg-filter="moisturize" aria-pressed="false">Moisturize</button>
+        <button type="button" data-pg-filter="protect" aria-pressed="false">Protect</button>
+      </div>
+      <p class="pg-count" id="pgCount" aria-live="polite">4 objects</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <h2 class="visually-hidden" id="pgGalleryH">Product gallery</h2>
+    <p class="pg-swipe-hint" aria-hidden="true"><span>Swipe</span><span class="pg-swipe-hint__line"></span><span>Four objects</span></p>
+    <div class="pg-grid" id="pgGrid" role="list" aria-label="Product carousel">
+
+      <article class="pg-tile pg-tile--pure" data-prod data-sku="pure" data-cat="cleanse" id="pg-pure">
+        <div class="pg-tile__inner">
+          <button type="button" class="pg-tile__visual" data-open="pure" aria-label="Pure Form details">
+            <span class="pg-tile__no">01</span>
+            <img class="pg-tile__pack img--product" src="img/photos/pure-form.jpg" width="1024" height="1280" loading="lazy" alt="SAM SKIN Pure Form cleanser bottle.">
+            <img class="pg-tile__scene img--campaign" src="img/photos/campaign-arch.jpg" width="1024" height="1280" loading="lazy" alt="" aria-hidden="true">
+          </button>
+          <div class="pg-tile__copy">
+            <div class="pg-tile__head">
+              <h3 class="pg-tile__name">Pure Form</h3>
+              <p class="prod__price" data-price-for="pure"><span class="prod__price-amt"></span><span class="prod__price-note">Incl. VAT</span></p>
+            </div>
+            <p class="pg-tile__kind">Gentle daily facial cleanser · 200 ml</p>
+          </div>
+          <footer class="pg-tile__foot">
+            <div class="pg-tile__actions">
+              <button type="button" class="btn btn--solid prod__add" data-add-cart="pure">Add to bag</button>
+              <button type="button" class="pg-tile__details" data-open="pure" aria-label="Pure Form details">+</button>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+      <article class="pg-tile pg-tile--dew" data-prod data-sku="dew" data-cat="hydrate" id="pg-dew">
+        <div class="pg-tile__inner">
+          <button type="button" class="pg-tile__visual" data-open="dew" aria-label="Dew Elixir details">
+            <span class="pg-tile__no">02</span>
+            <img class="pg-tile__pack img--product" src="img/photos/dew-elixir.jpg" width="1024" height="1280" loading="lazy" alt="SAM SKIN Dew Elixir serum in frosted glass.">
+            <img class="pg-tile__scene img--campaign" src="img/photos/scene-dew.jpg" width="1024" height="1280" loading="lazy" alt="" aria-hidden="true">
+          </button>
+          <div class="pg-tile__copy">
+            <div class="pg-tile__head">
+              <h3 class="pg-tile__name">Dew Elixir</h3>
+              <p class="prod__price" data-price-for="dew"><span class="prod__price-amt"></span><span class="prod__price-note">Incl. VAT</span></p>
+            </div>
+            <p class="pg-tile__kind">Hydrating face serum · 30 ml</p>
+          </div>
+          <footer class="pg-tile__foot">
+            <div class="pg-tile__actions">
+              <button type="button" class="btn btn--solid prod__add" data-add-cart="dew">Add to bag</button>
+              <button type="button" class="pg-tile__details" data-open="dew" aria-label="Dew Elixir details">+</button>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+      <article class="pg-tile pg-tile--velvet" data-prod data-sku="velvet" data-cat="moisturize" id="pg-velvet">
+        <div class="pg-tile__inner">
+          <button type="button" class="pg-tile__visual" data-open="velvet" aria-label="Velvet Skin details">
+            <span class="pg-tile__no">03</span>
+            <img class="pg-tile__pack img--product" src="img/photos/velvet-skin.jpg" width="1024" height="1280" loading="lazy" alt="SAM SKIN Velvet Skin cream jar.">
+            <img class="pg-tile__scene img--campaign" src="img/photos/scene-velvet.jpg" width="1024" height="1280" loading="lazy" alt="" aria-hidden="true">
+          </button>
+          <div class="pg-tile__copy">
+            <div class="pg-tile__head">
+              <h3 class="pg-tile__name">Velvet Skin</h3>
+              <p class="prod__price" data-price-for="velvet"><span class="prod__price-amt"></span><span class="prod__price-note">Incl. VAT</span></p>
+            </div>
+            <p class="pg-tile__kind">Deep hydration cream · 50 ml</p>
+          </div>
+          <footer class="pg-tile__foot">
+            <div class="pg-tile__actions">
+              <button type="button" class="btn btn--solid prod__add" data-add-cart="velvet">Add to bag</button>
+              <button type="button" class="pg-tile__details" data-open="velvet" aria-label="Velvet Skin details">+</button>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+      <article class="pg-tile pg-tile--solar" data-prod data-sku="solar" data-cat="protect" id="pg-solar">
+        <div class="pg-tile__inner">
+          <button type="button" class="pg-tile__visual" data-open="solar" aria-label="Solar Veil details">
+            <span class="pg-tile__no">04</span>
+            <img class="pg-tile__pack img--product" src="img/photos/solar-veil.jpg" width="1024" height="1280" loading="lazy" alt="SAM SKIN Solar Veil SPF 50+ bottle.">
+            <img class="pg-tile__scene img--campaign" src="img/photos/scene-solar.jpg" width="1024" height="1280" loading="lazy" alt="" aria-hidden="true">
+          </button>
+          <div class="pg-tile__copy">
+            <div class="pg-tile__head">
+              <h3 class="pg-tile__name">Solar Veil</h3>
+              <p class="prod__price" data-price-for="solar"><span class="prod__price-amt"></span><span class="prod__price-note">Incl. VAT</span></p>
+            </div>
+            <p class="pg-tile__kind">Daily UV fluid SPF 50+ · 50 ml</p>
+          </div>
+          <footer class="pg-tile__foot">
+            <div class="pg-tile__actions">
+              <button type="button" class="btn btn--solid prod__add" data-add-cart="solar">Add to bag</button>
+              <button type="button" class="pg-tile__details" data-open="solar" aria-label="Solar Veil details">+</button>
+            </div>
+          </footer>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="pg-close" id="pg-close" data-tone="dark" aria-labelledby="pgCloseH">
+  <div class="wrap">
+    <div class="pg-close__grid">
+      <div>
+        <p class="eyebrow">The daily ritual</p>
+        <h2 class="pg-close__h" id="pgCloseH">A sequence you can <em>keep.</em></h2>
+        <p class="lead" style="color:var(--ivory);max-width:28rem;margin-top:1.25rem">See how the four objects fit into a calm morning practice — or explore the philosophy behind the house.</p>
+        <div class="pg-close__links">
+          <a class="btn btn--light" href="index.html#ritual">View the ritual
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+          <a class="link" href="index.html#philosophy">Read the philosophy</a>
+        </div>
+      </div>
+      <figure class="pg-close__fig">
+        <img class="img--product" src="img/photos/pure-form.jpg" width="1024" height="1280" loading="lazy" alt="Pure Form on porcelain, held in morning light.">
+      </figure>
+    </div>
+    <footer class="ftr" id="contact">
+      <div class="ftr__in">
+        <img src="img/logo-light.png" width="513" height="258" alt="SAM SKIN" loading="lazy">
+        <nav aria-label="Footer">
+          <a href="products.html">Collection</a>
+          <a href="index.html#philosophy">Philosophy</a>
+          <a href="index.html#ritual">Ritual</a>
+          <span id="ftContact">Contact</span>
+          <span id="ftInsta">Instagram</span>
+        </nav>
+        <small>© 2026 SAM SKIN. All rights reserved.</small>
+      </div>
+    </footer>
+  </div>
+</section>
+
+</main>
+
+<p class="bag-toast" id="bagToast" role="status" aria-live="polite" hidden><span>Added</span><span class="visually-hidden" id="bagToastTxt"> to your bag</span><button type="button" id="bagToastOpen">View</button></p>
+
+<div class="bag" id="bag" aria-hidden="true">
+  <button type="button" class="bag__scrim" id="bagScrim" aria-label="Close bag" tabindex="-1"></button>
+  <aside class="bag__panel" id="bagPanel" role="dialog" aria-modal="true" aria-labelledby="bagTitle">
+    <header class="bag__head">
+      <h2 id="bagTitle">Your bag</h2>
+      <button type="button" class="bag__close" id="bagClose">Close</button>
+    </header>
+    <div class="bag__body" id="bagBody">
+      <p class="bag__empty" id="bagEmpty">Your bag is empty. Add an object from the collection.</p>
+      <ul class="bag__list" id="bagList" hidden></ul>
+    </div>
+    <footer class="bag__foot">
+      <div class="bag__row"><span>Subtotal</span><strong id="bagSubtotal">—</strong></div>
+      <p class="bag__note" id="bagNote">Shipping and duties confirmed when you complete your order.</p>
+      <button type="button" class="btn btn--solid bag__checkout" id="bagCheckout" disabled>Complete order</button>
+    </footer>
+  </aside>
+</div>
+
+<dialog id="prodDlg" aria-labelledby="pdName">
+  <button class="dlg__close" id="pdClose" aria-label="Close">×</button>
+  <div class="dlg">
+    <div class="dlg__img"><img id="pdImg" class="img--product" alt=""></div>
+    <div class="dlg__body">
+      <p class="eyebrow" id="pdNo"></p>
+      <h2 id="pdName"></h2>
+      <p class="lead" id="pdLine"></p>
+      <dl class="dlg__facts">
+        <div><dt>Category</dt><dd id="pdKind"></dd></div>
+        <div><dt>Size</dt><dd id="pdSize"></dd></div>
+        <div><dt>In the ritual</dt><dd id="pdVerb"></dd></div>
+      </dl>
+      <p class="dlg__price" id="pdPrice"></p>
+      <p class="dlg__note">Description and size as printed on the pack.</p>
+      <div class="dlg__actions">
+        <button type="button" class="btn btn--solid" id="pdBag">Add to bag</button>
+        <a class="btn btn--ghost" href="index.html#ritual" id="pdRit">See it in the ritual</a>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+</div>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/sam-chrome.js"></script>
+<script src="js/sam-commerce.js"></script>
+<script src="js/products-page.js"></script>
+</body>
+</html>
